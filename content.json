@@ -1,0 +1,16 @@
+{
+  "payLabel": "To pay",
+  "givenLabel": "Received",
+  "paymentOptions": {
+    "cash": "Cash",
+    "ec": "EC",
+    "creditCard": "Creditcard",
+    "coupon": "Coupon",
+    "others": "Others"
+  },
+  "payButton": "Pay",
+  "sellingLabel": "Selling",
+  "error": {
+    "givenAmountTooLow": "Given amount is too low."
+  }
+}

@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-grow flex-col justify-between">
     <div class="bg-gray-100 flex-grow flex justify-center items-center">
-      <main class="mt-10 bg-white w-1/2">
+      <main class="mt-10 bg-white w-1/2 shadow">
         <button
           class="relative w-full h-32 flex justify-center items-center"
           @click="toggleState(0)"
         >
-          <span class="absolute left-4 top-4">Zu Zahlen</span>
+          <span class="absolute left-4 top-4">{{ content.payLabel }}</span>
           <div
             class="text-3xl"
             :class="
@@ -23,9 +23,11 @@
           class="relative w-full h-32 flex justify-center items-center"
           @click="toggleState(1)"
         >
-          <span class="absolute left-4 top-4">Gegeben</span>
-          <span v-if="paymentError" class="absolute right-4 top-4 text-red-500"
-            >Gegebene Menge ist zu niedrig.</span
+          <span class="absolute left-4 top-4">{{ content.givenLabel }}</span>
+          <span
+            v-if="paymentError"
+            class="absolute right-4 top-4 text-red-500"
+            >{{ content.error.givenAmountTooLow }}</span
           >
           <div
             class="text-3xl"
@@ -40,7 +42,9 @@
         </button>
       </main>
     </div>
-    <div class="bg-gray-700 flex justify-center py-2 relative space-x-4">
+    <div
+      class="bg-gray-700 flex justify-center py-2 relative space-x-4 shadow-xl"
+    >
       <possible-amounts
         @input-number="handlePossibleAmountsNumber"
         :values="calculatePossibleAmounts(payAmount)"
@@ -49,17 +53,18 @@
       <button
         class="
           absolute
-          right-2
-          bottom-2
-          px-2
+          right-4
+          bottom-4
+          px-6
           py-1
           bg-blue-400
           border-2 border-white
-          text-white
+          text-white text-3xl
+          shadow-2xl
         "
         @click="triggerPayment"
       >
-        Zahlen
+        {{ content.payButton }}
       </button>
       <div
         class="
@@ -71,12 +76,13 @@
           -translate-y-full
           flex
           space-x-px
+          shadow-xl
         "
       >
         <button
-          v-for="x in ['Bar', 'EC', 'Kreditkarte', 'Gutschein', 'Sonstiges']"
+          v-for="x in content.paymentOptions"
           :key="x"
-          class="px-10 py-2"
+          class="px-10 py-2 shadow-xl"
           :class="
             x === 'Bar'
               ? 'bg-gray-700 text-gray-200'
@@ -108,6 +114,8 @@ import { defineComponent } from "vue";
 import NumericKeyPad from "./NumericKeyPad.vue";
 import PossibleAmounts from "./PossibleAmounts.vue";
 import AppModal from "./AppModal.vue";
+import Content from "./../../content.json";
+
 import {
   convertNumberToEUR,
   calculatePossibleAmounts,
@@ -130,6 +138,7 @@ export default defineComponent({
       showModal: false,
       payAmount: "0.00",
       givenAmount: "0.00",
+      content: Content,
     };
   },
   mounted() {

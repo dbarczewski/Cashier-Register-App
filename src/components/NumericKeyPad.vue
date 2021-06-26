@@ -3,7 +3,7 @@
     <button
       v-for="x in inputField"
       :key="x"
-      class="px-6 py-2 text-3xl bg-gray-500 text-gray-100"
+      class="px-6 py-2 text-3xl bg-gray-500 text-gray-100 shadow-xl"
       @click="handleOnClick(x)"
     >
       {{ x }}

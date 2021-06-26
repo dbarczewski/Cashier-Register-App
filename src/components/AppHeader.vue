@@ -20,7 +20,7 @@
       >
         <avatar-icon class="m-2" />
         <div class="text-gray-800 mr-12">
-          <div>Verkauf</div>
+          <div>{{ content.sellingLabel }}</div>
           <div>012</div>
         </div>
         <button class="absolute right-2 top-0">x</button>
@@ -39,6 +39,7 @@ import MenuIcon from "./icons/MenuIcon.vue";
 import MenuArrowIcon from "./icons/MenuArrowIcon.vue";
 import PlusIcon from "./icons/PlusIcon.vue";
 import AvatarIcon from "./icons/AvatarIcon.vue";
+import Content from "./../../content.json";
 
 export default defineComponent({
   name: "Header",
@@ -48,6 +49,11 @@ export default defineComponent({
     MenuArrowIcon,
     PlusIcon,
     AvatarIcon,
+  },
+  data() {
+    return {
+      content: Content,
+    };
   },
 });
 </script>
