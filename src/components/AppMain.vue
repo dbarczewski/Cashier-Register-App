@@ -104,7 +104,27 @@
         left-1/2
       "
     >
-      {{ convertNumberToEUR(this.givenAmount - this.payAmount) }} is the change
+      <div class="relative w-full h-full flex justify-center items-center">
+        <span class="absolute left-4 top-4">{{ content.change }}:</span>
+
+        <span class="text-6xl">{{
+          convertNumberToEUR(this.givenAmount - this.payAmount)
+        }}</span>
+        <button
+          class="
+            absolute
+            right-2
+            bottom-2
+            px-10
+            py-2
+            shadow-xl
+            bg-gray-700
+            text-gray-200
+          "
+        >
+          {{ content.confirm }}
+        </button>
+      </div>
     </app-modal>
   </div>
 </template>
@@ -121,7 +141,7 @@ import {
   calculatePossibleAmounts,
   addToNumber,
   removeLastDigit,
-} from "@/utils/CurrencyConverter";
+} from "@/utils";
 
 enum STATE {
   PAY,
@@ -142,7 +162,17 @@ export default defineComponent({
     };
   },
   mounted() {
-    window.addEventListener("keydown", (e) => {
+    window.addEventListener("keydown", this.handleKeyDownEvent);
+  },
+  unmounted() {
+    window.addEventListener("keydown", this.handleKeyDownEvent);
+  },
+  methods: {
+    convertNumberToEUR,
+    calculatePossibleAmounts,
+    addToNumber,
+    removeLastDigit,
+    handleKeyDownEvent(e: KeyboardEvent) {
       if (e.key === "Enter") {
         if (this.selectedState === STATE.PAY) {
           this.selectedState = STATE.GIVE;
@@ -150,13 +180,7 @@ export default defineComponent({
           this.triggerPayment();
         }
       }
-    });
-  },
-  methods: {
-    convertNumberToEUR,
-    calculatePossibleAmounts,
-    addToNumber,
-    removeLastDigit,
+    },
     closeModal() {
       this.showModal = false;
       this.selectedState = STATE.PAY;
@@ -173,7 +197,7 @@ export default defineComponent({
       this.paymentError = false;
       let stateToChange =
         this.selectedState === STATE.PAY ? this.payAmount : this.givenAmount;
-      if (value === "<") {
+      if (value === "delete") {
         stateToChange = removeLastDigit(stateToChange);
       } else {
         stateToChange = addToNumber(stateToChange, value as string);
@@ -185,15 +209,11 @@ export default defineComponent({
       }
     },
     handlePossibleAmountsNumber(value: number) {
-      console.log("emitted", value);
       this.givenAmount = "" + value;
     },
     triggerPayment() {
       const parsedPayAmount = parseFloat(this.payAmount);
       const parsedGivenAmount = parseFloat(this.givenAmount);
-      console.log(this.payAmount);
-      console.log(this.givenAmount);
-
       if (parsedPayAmount > parsedGivenAmount) {
         this.paymentError = true;
       } else {

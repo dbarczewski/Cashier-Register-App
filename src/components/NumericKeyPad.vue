@@ -5,8 +5,9 @@
       :key="x"
       class="px-6 py-2 text-3xl bg-gray-500 text-gray-100 shadow-xl"
       @click="handleOnClick(x)"
+      :title="x"
     >
-      {{ x }}
+      {{ displayValue(x) }}
     </button>
   </div>
 </template>
@@ -18,7 +19,7 @@ export default defineComponent({
   name: "NumericKeyPad",
   data() {
     return {
-      inputField: [1, 2, 3, 4, 5, 6, 7, 8, 9, "<", 0, " "],
+      inputField: [7, 8, 9, 4, 5, 6, 1, 2, 3, "delete", 0, " "],
     };
   },
   mounted() {
@@ -29,13 +30,20 @@ export default defineComponent({
   },
   methods: {
     handleOnClick(value: string | number) {
-      console.log(value);
       this.$emit("inputNumber", value);
+    },
+    displayValue(value: string) {
+      switch (value) {
+        case "delete":
+          return "⌫";
+        default:
+          return value;
+      }
     },
     listenKeyPressEvent(e: KeyboardEvent) {
       if (["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].includes(e.key))
-        this.$emit("inputNumber", e.key);
-      if (e.key === "Backspace") this.$emit("inputNumber", "<");
+        this.$emit("inputNumber", parseInt(e.key));
+      if (e.key === "Backspace") this.$emit("inputNumber", "delete");
     },
   },
 });

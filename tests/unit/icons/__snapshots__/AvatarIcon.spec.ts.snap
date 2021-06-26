@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`icons/AvatarIcon renders component correctly 1`] = `
+<div
+  class="rounded-full w-8 h-8 bg-green-800 flex justify-center items-center"
+>
+  <span>
+    VK
+  </span>
+</div>
+`;

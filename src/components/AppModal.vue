@@ -3,16 +3,14 @@
     class="w-screen h-screen flex justify-center items-center bg-gray-800/50"
     @click.self="this.$emit('close')"
   >
-    <Dialog :open="true" class="">
-      <Dialog.Overlay />
+    <dialog class="block bg-gray-50 w-4/6 h-64">
       <slot />
-    </Dialog>
+    </dialog>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
 export default defineComponent({
   name: "AppModal",
 });

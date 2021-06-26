@@ -3,4 +3,13 @@ module.exports = {
   transform: {
     "^.+\\.vue$": "vue-jest",
   },
+  collectCoverageFrom: [
+    "**/src/**/*.{ts,vue}",
+    "!**/node_modules/**",
+    "!**/vendor/**",
+    "!**/cypress/**",
+    "!**/*/registerServiceWorker.ts",
+    "!**/*/App.vue",
+    "!**/*/main.ts",
+  ],
 };

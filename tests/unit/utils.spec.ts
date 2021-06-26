@@ -1,8 +1,5 @@
-import { removeLastDigit } from "./../../src/utils/CurrencyConverter";
-import {
-  addToNumber,
-  calculatePossibleAmounts,
-} from "@/utils/CurrencyConverter";
+import { convertNumberToEUR, removeLastDigit } from "../../src/utils";
+import { addToNumber, calculatePossibleAmounts } from "@/utils";
 
 describe("possibleAmounts", () => {
   describe("should return correct amounts for", () => {
@@ -181,23 +178,42 @@ describe("addToNumber", () => {
     const result = addToNumber("0.42", "9");
     expect(result).toBe("04.29");
   });
+  it("should return the value if it is bigger than default maxValue", () => {
+    const result = addToNumber("1111.11", "9");
+    expect(result).toBe("1111.11");
+  });
+  it("should return the value if it is bigger than custom maxValue", () => {
+    const result = addToNumber("0.99", "0", 1);
+    expect(result).toBe("0.99");
+  });
 });
 
 describe("removeFirstDigit", () => {
   it("should remove the first digit", () => {
     const result = removeLastDigit("1.23");
-    expect(result).toBe(".23");
+    expect(result).toBe(".12");
   });
   it("should remove the first digit", () => {
     const result = removeLastDigit("1243.23");
-    expect(result).toBe("243.23");
+    expect(result).toBe("124.32");
   });
   it("should remove the first digit", () => {
     const result = removeLastDigit("123.00");
-    expect(result).toBe("23.00");
+    expect(result).toBe("12.30");
   });
   it("should stay the same if number is 0.00", () => {
     const result = removeLastDigit("0.00");
     expect(result).toBe("0.00");
+  });
+});
+
+describe("convertNumberToEUR", () => {
+  it("should convert a number correctly", () => {
+    const result = convertNumberToEUR(5.23);
+    expect(result).toMatch("5,23\xa0€");
+  });
+  it("should convert a string correctly", () => {
+    const result = convertNumberToEUR("5.23");
+    expect(result).toMatch("5,23\xa0€");
   });
 });

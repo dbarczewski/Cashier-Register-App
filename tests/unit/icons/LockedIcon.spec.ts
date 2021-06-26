@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import AvatarIcon from "@/components/icons/AvatarIcon.vue";
+import LockedIcon from "@/components/icons/LockedIcon.vue";
 
-describe("icons/AvatarIcon", () => {
+describe("icons/LockedIcon", () => {
   it("renders component correctly", () => {
-    const wrapper = shallowMount(AvatarIcon);
+    const wrapper = shallowMount(LockedIcon);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1624741916232" clover="3.2.0">
+  <project timestamp="1624741916232" name="All files">
+    <metrics statements="103" coveredstatements="103" conditionals="55" coveredconditionals="53" methods="23" coveredmethods="23" elements="181" coveredelements="179" complexity="0" loc="103" ncloc="103" packages="3" files="11" classes="11"/>
+    <package name="src">
+      <metrics statements="28" coveredstatements="28" conditionals="33" coveredconditionals="33" methods="4" coveredmethods="4"/>
+      <file name="utils.ts" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/utils.ts">
+        <metrics statements="28" coveredstatements="28" conditionals="33" coveredconditionals="33" methods="4" coveredmethods="4"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="114" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="114" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="34" type="cond" truecount="4" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="33" type="cond" truecount="4" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="32" type="cond" truecount="4" falsecount="0"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="29" type="cond" truecount="4" falsecount="0"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="22" count="26" type="cond" truecount="4" falsecount="0"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="25" count="23" type="cond" truecount="4" falsecount="0"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="28" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="16" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="40" count="12" type="stmt"/>
+        <line num="41" count="12" type="stmt"/>
+        <line num="42" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="10" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="4" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="65" coveredstatements="65" conditionals="22" coveredconditionals="20" methods="19" coveredmethods="19"/>
+      <file name="AppHeader.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/AppHeader.vue">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+      </file>
+      <file name="AppMain.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/AppMain.vue">
+        <metrics statements="38" coveredstatements="38" conditionals="16" coveredconditionals="14" methods="11" coveredmethods="11"/>
+        <line num="133" count="1" type="stmt"/>
+        <line num="134" count="1" type="stmt"/>
+        <line num="135" count="1" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
+        <line num="137" count="1" type="stmt"/>
+        <line num="139" count="1" type="stmt"/>
+        <line num="146" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="147" count="1" type="stmt"/>
+        <line num="148" count="1" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
+        <line num="155" count="9" type="stmt"/>
+        <line num="165" count="9" type="stmt"/>
+        <line num="168" count="1" type="stmt"/>
+        <line num="176" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="177" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="178" count="1" type="stmt"/>
+        <line num="179" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="180" count="1" type="stmt"/>
+        <line num="185" count="1" type="stmt"/>
+        <line num="186" count="1" type="stmt"/>
+        <line num="187" count="1" type="stmt"/>
+        <line num="190" count="2" type="stmt"/>
+        <line num="191" count="2" type="stmt"/>
+        <line num="194" count="1" type="stmt"/>
+        <line num="197" count="8" type="stmt"/>
+        <line num="199" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="200" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="201" count="1" type="stmt"/>
+        <line num="203" count="7" type="stmt"/>
+        <line num="205" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="206" count="5" type="stmt"/>
+        <line num="208" count="3" type="stmt"/>
+        <line num="212" count="1" type="stmt"/>
+        <line num="215" count="2" type="stmt"/>
+        <line num="216" count="2" type="stmt"/>
+        <line num="217" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="218" count="1" type="stmt"/>
+        <line num="220" count="1" type="stmt"/>
+      </file>
+      <file name="AppModal.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/AppModal.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+      </file>
+      <file name="NumericKeyPad.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/NumericKeyPad.vue">
+        <metrics statements="12" coveredstatements="12" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="21" count="14" type="stmt"/>
+        <line num="26" count="14" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="36" count="168" type="stmt"/>
+        <line num="38" count="14" type="stmt"/>
+        <line num="40" count="154" type="stmt"/>
+        <line num="44" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="12" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="PossibleAmounts.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/PossibleAmounts.vue">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.icons">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="AvatarIcon.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/icons/AvatarIcon.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+      </file>
+      <file name="LockedIcon.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/icons/LockedIcon.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+      <file name="MenuArrowIcon.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/icons/MenuArrowIcon.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+      <file name="MenuIcon.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/icons/MenuIcon.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+      <file name="PlusIcon.vue" path="/Users/barczewski/Documents/Entwicklung/Privat/etos/geldstueckelung/src/components/icons/PlusIcon.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

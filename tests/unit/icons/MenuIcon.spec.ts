@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import AvatarIcon from "@/components/icons/AvatarIcon.vue";
+import MenuIcon from "@/components/icons/MenuIcon.vue";
 
-describe("icons/AvatarIcon", () => {
+describe("icons/MenuIcon", () => {
   it("renders component correctly", () => {
-    const wrapper = shallowMount(AvatarIcon);
+    const wrapper = shallowMount(MenuIcon);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

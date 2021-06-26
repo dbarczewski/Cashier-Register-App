@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { convertNumberToEUR } from "@/utils/CurrencyConverter";
+import { convertNumberToEUR } from "@/utils";
 
 export default defineComponent({
   name: "PossibleAmounts",
