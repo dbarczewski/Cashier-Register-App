@@ -1,24 +1,50 @@
 <template>
   <div class="flex flex-grow flex-col justify-between">
     <div class="bg-gray-100 flex-grow flex justify-center items-center">
-      <main class="mt-10 bg-white">
-        <div class="relative w-64 h-32 flex justify-center items-center">
+      <main class="mt-10 bg-white w-1/2">
+        <button
+          class="relative w-full h-32 flex justify-center items-center"
+          @click="toggleState(0)"
+        >
           <span class="absolute left-4 top-4">Zu Zahlen</span>
-          <div>
-            <span>{{ convertNumberToEUR(startValue) }}</span>
+          <div
+            class="text-3xl"
+            :class="
+              selectedState === 0
+                ? 'border-b-8 p-2 border-double border-green-400'
+                : ''
+            "
+          >
+            <span>{{ convertNumberToEUR(payAmount) }}</span>
           </div>
-        </div>
+        </button>
         <hr />
-        <div class="relative w-64 h-32 flex justify-center items-center">
+        <button
+          class="relative w-full h-32 flex justify-center items-center"
+          @click="toggleState(1)"
+        >
           <span class="absolute left-4 top-4">Gegeben</span>
-          <div>
-            <span>€ 70,00</span>
+          <span v-if="paymentError" class="absolute right-4 top-4 text-red-500"
+            >Gegebene Menge ist zu niedrig.</span
+          >
+          <div
+            class="text-3xl"
+            :class="
+              selectedState === 1
+                ? 'border-b-8 p-2 border-double border-green-400'
+                : ''
+            "
+          >
+            <span>{{ convertNumberToEUR(givenAmount) }}</span>
           </div>
-        </div>
+        </button>
       </main>
     </div>
     <div class="bg-gray-700 flex justify-center py-2 relative space-x-4">
-      <possible-amounts @input-number="handlePossibleAmountsNumber" />
+      <possible-amounts
+        @input-number="handlePossibleAmountsNumber"
+        :values="calculatePossibleAmounts(payAmount)"
+      />
       <numeric-key-pad @input-number="handleKeyPadNumber" />
       <button
         class="
@@ -31,7 +57,7 @@
           border-2 border-white
           text-white
         "
-        @click="this.showModal = true"
+        @click="triggerPayment"
       >
         Zahlen
       </button>
@@ -62,7 +88,7 @@
       </div>
     </div>
     <app-modal
-      @close="this.showModal = false"
+      @close="closeModal"
       v-if="showModal"
       class="
         absolute
@@ -71,7 +97,9 @@
         top-1/2
         left-1/2
       "
-    />
+    >
+      {{ convertNumberToEUR(this.givenAmount - this.payAmount) }} is the change
+    </app-modal>
   </div>
 </template>
 
@@ -80,40 +108,88 @@ import { defineComponent } from "vue";
 import NumericKeyPad from "./NumericKeyPad.vue";
 import PossibleAmounts from "./PossibleAmounts.vue";
 import AppModal from "./AppModal.vue";
-import { convertNumberToEUR } from "@/utils/CurrencyConverter";
+import {
+  convertNumberToEUR,
+  calculatePossibleAmounts,
+  addToNumber,
+  removeLastDigit,
+} from "@/utils/CurrencyConverter";
+
+enum STATE {
+  PAY,
+  GIVE,
+}
 
 export default defineComponent({
   components: { NumericKeyPad, PossibleAmounts, AppModal },
   name: "Main",
   data() {
     return {
-      showModal: true,
-      startValue: "0.00",
+      selectedState: STATE.PAY as STATE,
+      paymentError: false,
+      showModal: false,
+      payAmount: "0.00",
+      givenAmount: "0.00",
     };
   },
-
+  mounted() {
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        if (this.selectedState === STATE.PAY) {
+          this.selectedState = STATE.GIVE;
+        } else if (this.selectedState === STATE.GIVE) {
+          this.triggerPayment();
+        }
+      }
+    });
+  },
   methods: {
     convertNumberToEUR,
+    calculatePossibleAmounts,
+    addToNumber,
+    removeLastDigit,
+    closeModal() {
+      this.showModal = false;
+      this.selectedState = STATE.PAY;
+      this.resetAmounts();
+    },
+    resetAmounts() {
+      this.payAmount = "0.00";
+      this.givenAmount = "0.00";
+    },
+    toggleState(state: STATE) {
+      this.selectedState = state;
+    },
     handleKeyPadNumber(value: number | string) {
-      console.log("emitted", value);
-
-      //TODO: PUT IN OWN FUNCTIONS
+      this.paymentError = false;
+      let stateToChange =
+        this.selectedState === STATE.PAY ? this.payAmount : this.givenAmount;
       if (value === "<") {
-        //TODO: FIX
-        this.startValue = this.startValue.toString().slice(-1, 0);
+        stateToChange = removeLastDigit(stateToChange);
       } else {
-        const tempValue =
-          this.startValue.replaceAll(".", "").toString() + value.toString();
-        this.startValue = [
-          tempValue.slice(0, -2),
-          ".",
-          tempValue.slice(-2),
-        ].join("");
+        stateToChange = addToNumber(stateToChange, value as string);
+      }
+      if (this.selectedState === STATE.PAY) {
+        this.payAmount = stateToChange;
+      } else {
+        this.givenAmount = stateToChange;
       }
     },
     handlePossibleAmountsNumber(value: number) {
       console.log("emitted", value);
-      this.startValue = "" + value;
+      this.givenAmount = "" + value;
+    },
+    triggerPayment() {
+      const parsedPayAmount = parseFloat(this.payAmount);
+      const parsedGivenAmount = parseFloat(this.givenAmount);
+      console.log(this.payAmount);
+      console.log(this.givenAmount);
+
+      if (parsedPayAmount > parsedGivenAmount) {
+        this.paymentError = true;
+      } else {
+        this.showModal = true;
+      }
     },
   },
 });

@@ -33,7 +33,7 @@ export default defineComponent({
       this.$emit("inputNumber", value);
     },
     listenKeyPressEvent(e: KeyboardEvent) {
-      if (["1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key))
+      if (["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].includes(e.key))
         this.$emit("inputNumber", e.key);
       if (e.key === "Backspace") this.$emit("inputNumber", "<");
     },
