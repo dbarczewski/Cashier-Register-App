@@ -121,6 +121,7 @@
             bg-gray-700
             text-gray-200
           "
+          @click="closeModal"
         >
           {{ content.confirm }}
         </button>
