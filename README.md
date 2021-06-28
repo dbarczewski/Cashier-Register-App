@@ -12,6 +12,8 @@ After both amounts are entered, the user can either press Enter on the keyboard 
 
 In this window it is possible to click on the button or on the gray area and the two values will be reset and the next customer can be served.
 
+[LIVE-DEMO](https://dbarczewski.github.io/Cashier-Register-App/)
+
 ## What was used to implement the project?
 
 - Vue.js 3
