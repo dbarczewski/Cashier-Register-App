@@ -2,10 +2,17 @@
 
 exports[`icons/LockedIcon renders component correctly 1`] = `
 <div
-  class="w-screen bg-gray-700 text-gray-200 justify-between flex items-center"
+  class="
+      w-screen
+      bg-background
+      text-gray-300
+      justify-between
+      flex
+      items-center
+    "
 >
   <nav
-    class="ml-6 flex flex-row space-x-6"
+    class="ml-16 flex flex-row space-x-16 my-2"
   >
     <div>
       <locked-icon-stub />
@@ -22,19 +29,21 @@ exports[`icons/LockedIcon renders component correctly 1`] = `
   >
     <div
       class="
-          bg-white
+          bg-gray-100
           h-full
-          border-t-2 border-gray-700
+          border-t-8 border-background
           flex flex-row
           relative
-          pt-2
+          justify-center
+          items-center
+          pt-4
         "
     >
       <avatar-icon-stub
-        class="m-2"
+        class="m-2 p-6"
       />
       <div
-        class="text-gray-800 mr-12"
+        class="text-gray-800 mr-16"
       >
         <div>
           Selling
@@ -50,7 +59,7 @@ exports[`icons/LockedIcon renders component correctly 1`] = `
       </button>
     </div>
     <div
-      class="px-6"
+      class="px-12"
     >
       <plus-icon-stub />
     </div>

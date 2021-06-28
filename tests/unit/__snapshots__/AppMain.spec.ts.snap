@@ -19,7 +19,7 @@ exports[`AppMain renders component correctly 1`] = `
           To pay
         </span>
         <div
-          class="text-3xl border-b-8 p-2 border-double border-green-400"
+          class="text-3xl border-b-8 p-2 border-double border-highlight"
         >
           <span>
             0,00 €
@@ -47,7 +47,15 @@ exports[`AppMain renders component correctly 1`] = `
     </main>
   </div>
   <div
-    class="bg-gray-700 flex justify-center py-2 relative space-x-4 shadow-xl"
+    class="
+        bg-background
+        flex
+        justify-center
+        py-2
+        relative
+        space-x-4
+        shadow-xl
+      "
   >
     <possible-amounts-stub
       values="0.00,1,2,5,10"
@@ -60,7 +68,7 @@ exports[`AppMain renders component correctly 1`] = `
           bottom-4
           px-6
           py-1
-          bg-blue-400
+          bg-highlight
           border-2 border-white
           text-white text-3xl
           shadow-2xl
@@ -78,32 +86,31 @@ exports[`AppMain renders component correctly 1`] = `
           -translate-y-full
           flex
           space-x-px
-          shadow-xl
         "
     >
       
       <button
-        class="px-10 py-2 shadow-xl bg-gray-300 text-gray-700"
+        class="px-10 py-2 bg-background text-gray-200"
       >
         Cash
       </button>
       <button
-        class="px-10 py-2 shadow-xl bg-gray-300 text-gray-700"
+        class="px-10 py-2 bg-gray-300 text-background"
       >
         EC
       </button>
       <button
-        class="px-10 py-2 shadow-xl bg-gray-300 text-gray-700"
+        class="px-10 py-2 bg-gray-300 text-background"
       >
         Creditcard
       </button>
       <button
-        class="px-10 py-2 shadow-xl bg-gray-300 text-gray-700"
+        class="px-10 py-2 bg-gray-300 text-background"
       >
         Coupon
       </button>
       <button
-        class="px-10 py-2 shadow-xl bg-gray-300 text-gray-700"
+        class="px-10 py-2 bg-gray-300 text-background"
       >
         Others
       </button>

@@ -1,8 +1,15 @@
 <template>
   <div
-    class="w-screen bg-gray-700 text-gray-200 justify-between flex items-center"
+    class="
+      w-screen
+      bg-background
+      text-gray-300
+      justify-between
+      flex
+      items-center
+    "
   >
-    <nav class="ml-6 flex flex-row space-x-6">
+    <nav class="ml-16 flex flex-row space-x-16 my-2">
       <div><LockedIcon /></div>
       <div><MenuIcon /></div>
       <div><MenuArrowIcon /></div>
@@ -10,22 +17,24 @@
     <div class="flex flex-row items-center">
       <div
         class="
-          bg-white
+          bg-gray-100
           h-full
-          border-t-2 border-gray-700
+          border-t-8 border-background
           flex flex-row
           relative
-          pt-2
+          justify-center
+          items-center
+          pt-4
         "
       >
-        <avatar-icon class="m-2" />
-        <div class="text-gray-800 mr-12">
+        <avatar-icon class="m-2 p-6" />
+        <div class="text-gray-800 mr-16">
           <div>{{ content.sellingLabel }}</div>
           <div>012</div>
         </div>
         <button class="absolute right-2 top-0">x</button>
       </div>
-      <div class="px-6">
+      <div class="px-12">
         <PlusIcon />
       </div>
     </div>

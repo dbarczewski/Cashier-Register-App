@@ -11,7 +11,7 @@
             class="text-3xl"
             :class="
               selectedState === 0
-                ? 'border-b-8 p-2 border-double border-green-400'
+                ? 'border-b-8 p-2 border-double border-highlight'
                 : ''
             "
           >
@@ -33,7 +33,7 @@
             class="text-3xl"
             :class="
               selectedState === 1
-                ? 'border-b-8 p-2 border-double border-green-400'
+                ? 'border-b-8 p-2 border-double border-highlight'
                 : ''
             "
           >
@@ -43,7 +43,15 @@
       </main>
     </div>
     <div
-      class="bg-gray-700 flex justify-center py-2 relative space-x-4 shadow-xl"
+      class="
+        bg-background
+        flex
+        justify-center
+        py-2
+        relative
+        space-x-4
+        shadow-xl
+      "
     >
       <possible-amounts
         @input-number="handlePossibleAmountsNumber"
@@ -57,7 +65,7 @@
           bottom-4
           px-6
           py-1
-          bg-blue-400
+          bg-highlight
           border-2 border-white
           text-white text-3xl
           shadow-2xl
@@ -76,20 +84,19 @@
           -translate-y-full
           flex
           space-x-px
-          shadow-xl
         "
       >
         <button
-          v-for="x in content.paymentOptions"
-          :key="x"
-          class="px-10 py-2 shadow-xl"
+          v-for="option in content.paymentOptions"
+          :key="option"
+          class="px-10 py-2"
           :class="
-            x === 'Bar'
-              ? 'bg-gray-700 text-gray-200'
-              : 'bg-gray-300 text-gray-700'
+            option === 'Cash'
+              ? 'bg-background text-gray-200'
+              : 'bg-gray-300 text-background'
           "
         >
-          {{ x }}
+          {{ option }}
         </button>
       </div>
     </div>

@@ -1,13 +1,21 @@
 <template>
   <div class="grid grid-cols-3 grid-flow-row gap-1">
     <button
-      v-for="x in inputField"
-      :key="x"
-      class="px-6 py-2 text-3xl bg-gray-500 text-gray-100 shadow-xl"
-      @click="handleOnClick(x)"
-      :title="x"
+      v-for="sign in inputField"
+      :key="sign"
+      class="
+        px-6
+        py-2
+        text-3xl
+        bg-gray-500
+        text-gray-100
+        shadow-xl
+        hover:bg-highlight
+      "
+      @click="handleOnClick(sign)"
+      :title="sign"
     >
-      {{ displayValue(x) }}
+      {{ displayValue(sign) }}
     </button>
   </div>
 </template>

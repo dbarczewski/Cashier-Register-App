@@ -1,16 +1,10 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="h-6 w-6"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
+  <svg width="24" height="24" viewbox="0 0 24 24">
     <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+      pid="0"
+      d="M22.5 10.5h-9v-9C13.5.7 12.8 0 12 0s-1.5.7-1.5 1.5v9h-9c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h9v9c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-9h9c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5z"
+      fill="#FFF"
+      fill-rule="nonzero"
     />
   </svg>
 </template>
